@@ -1,5 +1,5 @@
-# React + Vite
-
+# React, Vite & Tailwind
+ 
 This is an initial project, a game, to practice working with the localstorage Web API and learning how to integrate Tailwind. 
 
 ## Keypoints
