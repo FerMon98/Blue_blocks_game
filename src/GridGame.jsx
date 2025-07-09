@@ -4,8 +4,6 @@ export default function GridGame() {
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
-    const saved = localStorage.getItem("saved");
-    if (saved === "true") {
       try {
         const stored = localStorage.getItem("index");
         const parsed = JSON.parse(stored);
@@ -15,10 +13,7 @@ export default function GridGame() {
       } catch {
         setSelected([]);
       }
-    } else {
-      setSelected([]); // Ensure all-gray on fresh load
-    }
-  }, []);
+    }, [])
 
   function setValue(index) {
     const isSelected = selected.includes(index);
@@ -28,14 +23,12 @@ export default function GridGame() {
 
   function saveGrid() {
     localStorage.setItem("index", JSON.stringify(selected));
-    localStorage.setItem("saved", "true");
     alert('Saved!')
   }
 
   function resetGrid() {
     setSelected([]);
     localStorage.removeItem("index");
-    localStorage.removeItem("saved");
   }
 
   return (
